@@ -1,17 +1,67 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+// @flow
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+// Components
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export { default as DragDropContext } from './view/drag-drop-context';
+export { default as Droppable } from './view/droppable';
+export { default as Draggable } from './view/draggable';
+
+// Default sensors
+
+export {
+  useMouseSensor,
+  useTouchSensor,
+  useKeyboardSensor,
+} from './view/use-sensor-marshal';
+
+// Utils
+
+export { resetServerContext } from './view/drag-drop-context';
+
+// Public flow types
+
+export type {
+  Id,
+  TypeId,
+  DraggableId,
+  DroppableId,
+  DraggableRubric,
+  MovementMode,
+  BeforeCapture,
+  DragStart,
+  DragUpdate,
+  DropResult,
+  Direction,
+  ResponderProvided,
+  Announce,
+  DraggableLocation,
+  OnBeforeCaptureResponder,
+  OnBeforeDragStartResponder,
+  OnDragStartResponder,
+  OnDragUpdateResponder,
+  OnDragEndResponder,
+  SensorAPI,
+  Sensor,
+  TryGetLock,
+  TryGetLockOptions,
+} from './types';
+
+// Droppable types
+export type {
+  Provided as DroppableProvided,
+  StateSnapshot as DroppableStateSnapshot,
+  DroppableProps,
+} from './view/droppable/droppable-types';
+
+// Draggable types
+export type {
+  Provided as DraggableProvided,
+  StateSnapshot as DraggableStateSnapshot,
+  DragHandleProps,
+  DropAnimation,
+  DraggableProps,
+  DraggableStyle,
+  DraggingStyle,
+  NotDraggingStyle,
+  ChildrenFn as DraggableChildrenFn,
+} from './view/draggable/draggable-types';
